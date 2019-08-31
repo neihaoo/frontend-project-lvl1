@@ -3,8 +3,15 @@
   "version": "1.0.0",
   "description": "Brain Games (Hexlet Frontend Project Level 1)",
   "main": "index.js",
+  "bin": {
+    "brain-games": "dist/bin/brain-games.js"
+  },
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "NODE_ENV=production babel src --out-dir dist --source-maps inline",
+    "prepublishOnly": "npm run build"
   },
   "repository": {
     "type": "git",
@@ -15,5 +22,11 @@
   "bugs": {
     "url": "https://github.com/neihaoo/frontend-project-lvl1/issues"
   },
-  "homepage": "https://github.com/neihaoo/frontend-project-lvl1#readme"
+  "homepage": "https://github.com/neihaoo/frontend-project-lvl1#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.5.5",
+    "@babel/core": "^7.5.5",
+    "@babel/node": "^7.5.5",
+    "@babel/preset-env": "^7.5.5"
+  }
 }
