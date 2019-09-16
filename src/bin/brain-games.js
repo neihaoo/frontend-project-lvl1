@@ -1,6 +1,5 @@
 #!/usr/bin/env node
 
-import { welcome, greeting } from '..';
+import { greeting } from '..';
 
-console.log(`${welcome()}\n`);
 greeting();
