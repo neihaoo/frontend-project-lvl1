@@ -7,7 +7,7 @@
 
 - [Install](#Install)
 - [Run](#Run)
-  - [Parity Check](#Parity Check)
+  - [Parity Check](#Parity-Check)
   - [Calculator](#Calculator)
 
 ## Install
