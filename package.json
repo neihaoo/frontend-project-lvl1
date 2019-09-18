@@ -1,11 +1,12 @@
 {
   "name": "brain-games",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Brain Games (Hexlet Frontend Project Level 1)",
   "main": "dist/index.js",
   "bin": {
     "brain-games": "dist/bin/brain-games.js",
-    "brain-even": "dist/bin/brain-even.js"
+    "brain-even": "dist/bin/brain-even.js",
+    "brain-calc": "dist/bin/brain-calc.js"
   },
   "files": [
     "dist"
@@ -25,9 +26,9 @@
   },
   "homepage": "https://github.com/neihaoo/frontend-project-lvl1#readme",
   "devDependencies": {
-    "@babel/cli": "^7.5.5",
-    "@babel/core": "^7.5.5",
-    "@babel/node": "^7.5.5",
+    "@babel/cli": "^7.6.0",
+    "@babel/core": "^7.6.0",
+    "@babel/node": "^7.6.1",
     "@babel/preset-env": "^7.5.5",
     "babel-eslint": "^10.0.3",
     "eslint": "^6.3.0",
