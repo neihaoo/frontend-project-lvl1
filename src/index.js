@@ -2,6 +2,8 @@ import readlineSync from 'readline-sync';
 
 const ROUNDS = 3;
 
+const getRandomNumber = (max) => Math.round(Math.random() * max);
+
 const greeting = (description = '') => {
   const welcomeMsg = description !== ''
     ? `Welcome to the Brain Games!\n${description}\n`
@@ -36,6 +38,7 @@ const showLoseMsg = (userAnswer, correctAnswer, userName) => console.log(
 
 export {
   ROUNDS,
+  getRandomNumber,
   greeting,
   showQuestion,
   getAnswer,

@@ -1,5 +1,6 @@
 import {
   ROUNDS,
+  getRandomNumber,
   greeting,
   showQuestion,
   getAnswer,
@@ -13,11 +14,9 @@ const OPERATORS = ['+', '-', '*'];
 
 const gameDescription = 'What is the result of the expression?';
 
-const getRandomNumber = (max) => Math.round(Math.random() * max);
-
 const getRandomOparator = (operators) => operators[getRandomNumber(operators.length - 1)];
 
-const getCorrectAnswer = (num1, num2, operator) => {
+const findResultOfExpression = (num1, num2, operator) => {
   if (operator === '+') {
     return num1 + num2;
   }
@@ -39,7 +38,7 @@ export default () => {
     showQuestion(`${number1} ${operator} ${number2}`);
 
     const userAnswer = getAnswer();
-    const correctAnswer = String(getCorrectAnswer(number1, number2, operator));
+    const correctAnswer = String(findResultOfExpression(number1, number2, operator));
     const isAnswerCorrect = checkAnswer(userAnswer, correctAnswer);
 
     if (!isAnswerCorrect) {

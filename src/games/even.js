@@ -1,5 +1,6 @@
 import {
   ROUNDS,
+  getRandomNumber,
   greeting,
   showQuestion,
   getAnswer,
@@ -15,7 +16,7 @@ export default () => {
   const userName = greeting(gameDescription);
 
   for (let i = 0; i < ROUNDS; i += 1) {
-    const number = Math.round(Math.random() * 100);
+    const number = getRandomNumber(100);
 
     showQuestion(number);
 
