@@ -11,6 +11,7 @@
   - [Calculator](#Calculator)
   - [GCD (Greatest common divisor)](#GCD-(Greatest-common-divisor))
   - [Arithmetic progression](#Arithmetic-progression)
+  - [Is a number prime?](#Is-a-number-prime?)
 
 ## Install
 
@@ -18,7 +19,7 @@
 $ npm link
 ```
 
-[![asciicast](https://asciinema.org/a/PJOaHaBrw88b61WPktT1wmjL3.svg)](https://asciinema.org/a/PJOaHaBrw88b61WPktT1wmjL3)
+[![asciicast](https://asciinema.org/a/5Yw5PmRAxi7genwtBIOaKmMYX.svg)](https://asciinema.org/a/5Yw5PmRAxi7genwtBIOaKmMYX)
 
 ## Run
 
@@ -53,3 +54,11 @@ $ brain-progression
 ```
 
 [![asciicast](https://asciinema.org/a/zx1Ysb4trun28q4CdTS0Khbdl.svg)](https://asciinema.org/a/zx1Ysb4trun28q4CdTS0Khbdl)
+
+## Is a number prime?
+
+```sh
+$ brain-prime
+```
+
+[![asciicast](https://asciinema.org/a/t0XFVlnTy2i0vD4SMTju81ZVi.svg)](https://asciinema.org/a/t0XFVlnTy2i0vD4SMTju81ZVi)
