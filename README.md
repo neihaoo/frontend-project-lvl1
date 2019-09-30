@@ -10,6 +10,7 @@
   - [Parity Check](#Parity-Check)
   - [Calculator](#Calculator)
   - [GCD (Greatest common divisor)](#GCD-(Greatest-common-divisor))
+  - [Arithmetic progression](#Arithmetic-progression)
 
 ## Install
 
@@ -17,7 +18,7 @@
 $ npm link
 ```
 
-[![asciicast](https://asciinema.org/a/UWfjMrIHAZkO4BWqGXXRJ6yyd.svg)](https://asciinema.org/a/UWfjMrIHAZkO4BWqGXXRJ6yyd)
+[![asciicast](https://asciinema.org/a/PJOaHaBrw88b61WPktT1wmjL3.svg)](https://asciinema.org/a/PJOaHaBrw88b61WPktT1wmjL3)
 
 ## Run
 
@@ -42,4 +43,13 @@ $ brain-calc
 ```sh
 $ brain-gcd
 ```
+
 [![asciicast](https://asciinema.org/a/QJQtjzetPCDf3aTvTazIQoBpf.svg)](https://asciinema.org/a/QJQtjzetPCDf3aTvTazIQoBpf)
+
+## Arithmetic progression
+
+```sh
+$ brain-progression
+```
+
+[![asciicast](https://asciinema.org/a/zx1Ysb4trun28q4CdTS0Khbdl.svg)](https://asciinema.org/a/zx1Ysb4trun28q4CdTS0Khbdl)
