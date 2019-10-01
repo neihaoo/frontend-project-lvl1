@@ -1,21 +1,15 @@
 import {
-  ROUNDS,
+  cons,
   getRandomNumber,
   greeting,
-  showQuestion,
-  getAnswer,
-  checkAnswer,
-  showCorrectMsg,
-  showLoseMsg,
-  showWinMsg,
+  run,
 } from '..';
 
-const Progression = {
-  LENGTH: 10,
-  STEP: (number) => getRandomNumber(number),
-};
+const PROGRESSION_LENGTH = 10;
 
-const generateProgression = (start, length, step) => {
+const gameDescription = 'What number is missing in the progression?';
+
+const generateProgression = (start) => (length) => (step) => {
   const progression = [start];
 
   for (let i = 0; i < length; i += 1) {
@@ -35,29 +29,17 @@ const makeQuestion = (progression, num) => {
   return question.join(' ');
 };
 
-const gameDescription = 'What number is missing in the progression?';
+const generateGameData = () => {
+  const startProgression = generateProgression(getRandomNumber(100));
+  const lengthProgression = startProgression(PROGRESSION_LENGTH);
+  const progression = lengthProgression(getRandomNumber(100));
+  const hiddenNumber = getRandomNumber(progression.length);
+  const question = makeQuestion(progression, hiddenNumber);
+  const answer = String(progression[hiddenNumber]);
 
-export default () => {
-  const userName = greeting(gameDescription);
-
-  for (let i = 0; i < ROUNDS; i += 1) {
-    const startProgression = getRandomNumber(100);
-    const stepProgression = Progression.STEP(Progression.LENGTH);
-    const progression = generateProgression(startProgression, Progression.LENGTH, stepProgression);
-    const hiddenNumber = getRandomNumber(progression.length);
-
-    showQuestion(makeQuestion(progression, hiddenNumber));
-
-    const userAnswer = getAnswer();
-    const correctAnswer = String(progression[hiddenNumber]);
-    const isAnswerCorrect = checkAnswer(userAnswer, correctAnswer);
-
-    if (!isAnswerCorrect) {
-      return showLoseMsg(userAnswer, correctAnswer, userName);
-    }
-
-    showCorrectMsg();
-  }
-
-  return showWinMsg(userName);
+  return cons(question, answer);
 };
+
+const startGame = run(greeting(gameDescription));
+
+export default () => startGame(generateGameData);

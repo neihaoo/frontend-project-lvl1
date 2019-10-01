@@ -1,6 +1,6 @@
 {
   "name": "brain-games",
-  "version": "1.5.1",
+  "version": "1.5.2",
   "description": "Brain Games (Hexlet Frontend Project Level 1)",
   "main": "dist/index.js",
   "bin": {
@@ -40,6 +40,7 @@
     "eslint-plugin-import": "^2.18.2"
   },
   "dependencies": {
+    "@hexlet/pairs": "^1.0.10",
     "readline-sync": "^1.4.10"
   }
 }

@@ -1,14 +1,11 @@
 import {
-  ROUNDS,
+  cons,
   getRandomNumber,
   greeting,
-  showQuestion,
-  getAnswer,
-  checkAnswer,
-  showCorrectMsg,
-  showLoseMsg,
-  showWinMsg,
+  run,
 } from '..';
+
+const gameDescription = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
 const isPrime = (number) => {
   for (let i = 2; i < number; i += 1) {
@@ -20,26 +17,13 @@ const isPrime = (number) => {
   return 'yes';
 };
 
-const gameDescription = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+const gameData = () => {
+  const question = getRandomNumber(100);
+  const answer = isPrime(question);
 
-export default () => {
-  const userName = greeting(gameDescription);
-
-  for (let i = 0; i < ROUNDS; i += 1) {
-    const number = getRandomNumber(100);
-
-    showQuestion(number);
-
-    const userAnswer = getAnswer();
-    const correctAnswer = isPrime(number);
-    const isAnswerCorrect = checkAnswer(userAnswer, correctAnswer);
-
-    if (!isAnswerCorrect) {
-      return showLoseMsg(userAnswer, correctAnswer, userName);
-    }
-
-    showCorrectMsg();
-  }
-
-  return showWinMsg(userName);
+  return cons(question, answer);
 };
+
+const startGame = run(greeting(gameDescription));
+
+export default () => startGame(gameData);

@@ -1,13 +1,8 @@
 import {
-  ROUNDS,
+  cons,
   getRandomNumber,
   greeting,
-  showQuestion,
-  getAnswer,
-  checkAnswer,
-  showCorrectMsg,
-  showLoseMsg,
-  showWinMsg,
+  run,
 } from '..';
 
 const gameDescription = 'Find the greatest common divisor of given numbers.';
@@ -23,25 +18,15 @@ const findGcd = (a, b) => {
   return findGcd(x, y);
 };
 
-export default () => {
-  const userName = greeting(gameDescription);
+const gameData = () => {
+  const number1 = getRandomNumber(100);
+  const number2 = getRandomNumber(100);
+  const question = `${number1} ${number2}`;
+  const answer = String(findGcd(number1, number2));
 
-  for (let i = 0; i < ROUNDS; i += 1) {
-    const number1 = getRandomNumber(100);
-    const number2 = getRandomNumber(100);
-
-    showQuestion(`${number1} ${number2}`);
-
-    const userAnswer = getAnswer();
-    const correctAnswer = String(findGcd(number1, number2));
-    const isAnswerCorrect = checkAnswer(userAnswer, correctAnswer);
-
-    if (!isAnswerCorrect) {
-      return showLoseMsg(userAnswer, correctAnswer, userName);
-    }
-
-    showCorrectMsg();
-  }
-
-  return showWinMsg(userName);
+  return cons(question, answer);
 };
+
+const startGame = run(greeting(gameDescription));
+
+export default () => startGame(gameData);

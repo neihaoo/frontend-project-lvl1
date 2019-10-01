@@ -1,13 +1,8 @@
 import {
-  ROUNDS,
+  cons,
   getRandomNumber,
   greeting,
-  showQuestion,
-  getAnswer,
-  checkAnswer,
-  showCorrectMsg,
-  showLoseMsg,
-  showWinMsg,
+  run,
 } from '..';
 
 const OPERATORS = ['+', '-', '*'];
@@ -27,26 +22,16 @@ const findResultOfExpression = (num1, num2, operator) => {
   return num1 * num2;
 };
 
-export default () => {
-  const userName = greeting(gameDescription);
+const gameData = () => {
+  const number1 = getRandomNumber(100);
+  const number2 = getRandomNumber(100);
+  const operator = getRandomOparator(OPERATORS);
+  const question = `${number1} ${operator} ${number2}`;
+  const answer = String(findResultOfExpression(number1, number2, operator));
 
-  for (let i = 0; i < ROUNDS; i += 1) {
-    const number1 = getRandomNumber(100);
-    const number2 = getRandomNumber(100);
-    const operator = getRandomOparator(OPERATORS);
-
-    showQuestion(`${number1} ${operator} ${number2}`);
-
-    const userAnswer = getAnswer();
-    const correctAnswer = String(findResultOfExpression(number1, number2, operator));
-    const isAnswerCorrect = checkAnswer(userAnswer, correctAnswer);
-
-    if (!isAnswerCorrect) {
-      return showLoseMsg(userAnswer, correctAnswer, userName);
-    }
-
-    showCorrectMsg();
-  }
-
-  return showWinMsg(userName);
+  return cons(question, answer);
 };
+
+const startGame = run(greeting(gameDescription));
+
+export default () => startGame(gameData);

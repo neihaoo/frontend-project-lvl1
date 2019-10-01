@@ -1,35 +1,19 @@
 import {
-  ROUNDS,
+  cons,
   getRandomNumber,
   greeting,
-  showQuestion,
-  getAnswer,
-  checkAnswer,
-  showCorrectMsg,
-  showLoseMsg,
-  showWinMsg,
+  run,
 } from '..';
 
 const gameDescription = 'Answer "yes" if the number is even, otherwise answer "no".';
 
-export default () => {
-  const userName = greeting(gameDescription);
+const gameData = () => {
+  const question = getRandomNumber(100);
+  const answer = question % 2 === 0 ? 'yes' : 'no';
 
-  for (let i = 0; i < ROUNDS; i += 1) {
-    const number = getRandomNumber(100);
-
-    showQuestion(number);
-
-    const userAnswer = getAnswer();
-    const correctAnswer = number % 2 === 0 ? 'yes' : 'no';
-    const isAnswerCorrect = checkAnswer(userAnswer, correctAnswer);
-
-    if (!isAnswerCorrect) {
-      return showLoseMsg(userAnswer, correctAnswer, userName);
-    }
-
-    showCorrectMsg();
-  }
-
-  return showWinMsg(userName);
+  return cons(question, answer);
 };
+
+const startGame = run(greeting(gameDescription));
+
+export default () => startGame(gameData);

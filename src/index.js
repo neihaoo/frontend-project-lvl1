@@ -1,8 +1,8 @@
+import { cons, car, cdr } from '@hexlet/pairs';
 import readlineSync from 'readline-sync';
 
-const ROUNDS = 3;
-
 const getRandomNumber = (max) => Math.round(Math.random() * max);
+const checkAnswer = (correctAnswer) => (userAnswer) => correctAnswer === userAnswer;
 
 const greeting = (description = '') => {
   const welcomeMsg = description !== ''
@@ -18,32 +18,32 @@ const greeting = (description = '') => {
   return userName;
 };
 
-const showQuestion = (question) => console.log(`Question: ${question}`);
+const run = (userName) => (game) => {
+  const ROUNDS = 3;
 
-const getAnswer = () => {
-  const userAnswer = readlineSync.question('Your answer: ');
+  for (let i = 0; i < ROUNDS; i += 1) {
+    const gameData = game();
+    const gameQuestion = car(gameData);
+    const correctAnswer = cdr(gameData);
 
-  return userAnswer;
+    console.log(`Question: ${gameQuestion}`);
+
+    const userAnswer = readlineSync.question('Your answer: ');
+    const isAnswerCorrect = checkAnswer(correctAnswer);
+
+    if (!isAnswerCorrect(userAnswer)) {
+      return console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.\nLet's try again, ${userName}!`);
+    }
+
+    console.log('Correct!');
+  }
+
+  return console.log(`Congratulations, ${userName}!`);
 };
 
-const checkAnswer = (userAnswer, correctAnswer) => userAnswer === correctAnswer;
-
-const showCorrectMsg = () => console.log('Correct!');
-
-const showWinMsg = (userName) => console.log(`Congratulations, ${userName}!`);
-
-const showLoseMsg = (userAnswer, correctAnswer, userName) => console.log(
-  `'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.\nLet's try again, ${userName}!`,
-);
-
 export {
-  ROUNDS,
+  cons,
   getRandomNumber,
   greeting,
-  showQuestion,
-  getAnswer,
-  checkAnswer,
-  showCorrectMsg,
-  showLoseMsg,
-  showWinMsg,
+  run,
 };
