@@ -2,7 +2,7 @@ import {
   cons,
   getRandomNumber,
   greeting,
-  run,
+  runGame,
 } from '..';
 
 const gameDescription = 'Answer "yes" if given number is prime. Otherwise answer "no".';
@@ -17,13 +17,11 @@ const isPrime = (number) => {
   return 'yes';
 };
 
-const gameData = () => {
+const generateGameData = () => {
   const question = getRandomNumber(100);
   const answer = isPrime(question);
 
   return cons(question, answer);
 };
 
-const startGame = run(greeting(gameDescription));
-
-export default () => startGame(gameData);
+export default () => runGame(greeting(gameDescription), generateGameData);

@@ -2,7 +2,7 @@ import {
   cons,
   getRandomNumber,
   greeting,
-  run,
+  runGame,
 } from '..';
 
 const OPERATORS = ['+', '-', '*'];
@@ -22,7 +22,7 @@ const findResultOfExpression = (num1, num2, operator) => {
   return num1 * num2;
 };
 
-const gameData = () => {
+const generateGameData = () => {
   const number1 = getRandomNumber(100);
   const number2 = getRandomNumber(100);
   const operator = getRandomOparator(OPERATORS);
@@ -32,6 +32,4 @@ const gameData = () => {
   return cons(question, answer);
 };
 
-const startGame = run(greeting(gameDescription));
-
-export default () => startGame(gameData);
+export default () => runGame(greeting(gameDescription), generateGameData);

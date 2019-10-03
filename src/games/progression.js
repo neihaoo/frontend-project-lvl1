@@ -2,7 +2,7 @@ import {
   cons,
   getRandomNumber,
   greeting,
-  run,
+  runGame,
 } from '..';
 
 const PROGRESSION_LENGTH = 10;
@@ -40,6 +40,4 @@ const generateGameData = () => {
   return cons(question, answer);
 };
 
-const startGame = run(greeting(gameDescription));
-
-export default () => startGame(generateGameData);
+export default () => runGame(greeting(gameDescription), generateGameData);

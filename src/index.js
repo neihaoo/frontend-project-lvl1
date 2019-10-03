@@ -2,7 +2,7 @@ import { cons, car, cdr } from '@hexlet/pairs';
 import readlineSync from 'readline-sync';
 
 const getRandomNumber = (max) => Math.round(Math.random() * max);
-const checkAnswer = (correctAnswer) => (userAnswer) => correctAnswer === userAnswer;
+const saveAnswer = (answer) => (answerForCheck) => answer === answerForCheck;
 
 const greeting = (description = '') => {
   const welcomeMsg = description !== ''
@@ -18,7 +18,7 @@ const greeting = (description = '') => {
   return userName;
 };
 
-const run = (userName) => (game) => {
+const runGame = (userName, game) => {
   const ROUNDS = 3;
 
   for (let i = 0; i < ROUNDS; i += 1) {
@@ -29,7 +29,7 @@ const run = (userName) => (game) => {
     console.log(`Question: ${gameQuestion}`);
 
     const userAnswer = readlineSync.question('Your answer: ');
-    const isAnswerCorrect = checkAnswer(correctAnswer);
+    const isAnswerCorrect = saveAnswer(correctAnswer);
 
     if (!isAnswerCorrect(userAnswer)) {
       return console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.\nLet's try again, ${userName}!`);
@@ -45,5 +45,5 @@ export {
   cons,
   getRandomNumber,
   greeting,
-  run,
+  runGame,
 };
