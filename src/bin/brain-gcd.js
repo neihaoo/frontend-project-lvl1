@@ -2,4 +2,4 @@
 
 import startGame from '../games/gcd';
 
-startGame();
+console.log(startGame());

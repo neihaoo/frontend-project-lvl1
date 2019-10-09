@@ -2,4 +2,4 @@
 
 import startGame from '../games/calc';
 
-startGame();
+console.log(startGame());

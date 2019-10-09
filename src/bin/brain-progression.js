@@ -2,4 +2,4 @@
 
 import startGame from '../games/progression';
 
-startGame();
+console.log(startGame());

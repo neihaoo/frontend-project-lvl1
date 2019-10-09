@@ -2,4 +2,4 @@
 
 import startGame from '../games/prime';
 
-startGame();
+console.log(startGame());

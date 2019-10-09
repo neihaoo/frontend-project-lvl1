@@ -1,17 +1,15 @@
-import {
-  cons,
-  getRandomNumber,
-  greeting,
-  runGame,
-} from '..';
+import { cons } from '@hexlet/pairs';
+import { getRandomNumber, runGame } from '..';
 
 const gameDescription = 'Answer "yes" if the number is even, otherwise answer "no".';
 
+const isEven = (number) => number % 2 === 0;
+
 const generateGameData = () => {
-  const question = getRandomNumber(100);
-  const answer = question % 2 === 0 ? 'yes' : 'no';
+  const question = getRandomNumber(0, 100);
+  const answer = isEven(question) ? 'yes' : 'no';
 
   return cons(question, answer);
 };
 
-export default () => runGame(greeting(gameDescription), generateGameData);
+export default () => runGame(gameDescription, generateGameData);
