@@ -1,5 +1,6 @@
 import { cons } from '@hexlet/pairs';
-import { getRandomNumber, runGame } from '..';
+import runGame from '..';
+import getRandomNumber from '../utils';
 
 const PROGRESSION_LENGTH = 10;
 
@@ -27,11 +28,11 @@ const generateGameData = () => {
   const progressionStart = getRandomNumber(0, 100);
   const progressionStep = getRandomNumber(0, 100);
   const progression = generateProgression(progressionStart, PROGRESSION_LENGTH, progressionStep);
-  const hiddenNumberIndex = getRandomNumber(0, progression.length);
-  const question = makeQuestion(progression, hiddenNumberIndex);
-  const answer = String(progression[hiddenNumberIndex]);
+  const progressionIndex = getRandomNumber(0, progression.length);
+  const question = makeQuestion(progression, progressionIndex);
+  const answer = String(progression[progressionIndex]);
 
   return cons(question, answer);
 };
 
-export default () => runGame(gameDescription, generateGameData);
+export default () => console.log(runGame(gameDescription, generateGameData));

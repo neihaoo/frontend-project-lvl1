@@ -1,5 +1,6 @@
 import { cons } from '@hexlet/pairs';
-import { getRandomNumber, runGame } from '..';
+import runGame from '..';
+import getRandomNumber from '../utils';
 
 const gameDescription = 'Answer "yes" if the number is even, otherwise answer "no".';
 
@@ -12,4 +13,4 @@ const generateGameData = () => {
   return cons(question, answer);
 };
 
-export default () => runGame(gameDescription, generateGameData);
+export default () => console.log(runGame(gameDescription, generateGameData));
