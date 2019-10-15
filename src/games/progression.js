@@ -25,14 +25,14 @@ const makeQuestion = (progression, num) => {
 };
 
 const generateGameData = () => {
-  const progressionStart = getRandomNumber(0, 100);
-  const progressionStep = getRandomNumber(0, 100);
-  const progression = generateProgression(progressionStart, PROGRESSION_LENGTH, progressionStep);
-  const progressionIndex = getRandomNumber(0, progression.length);
-  const question = makeQuestion(progression, progressionIndex);
-  const answer = String(progression[progressionIndex]);
+  const start = getRandomNumber(0, 100);
+  const step = getRandomNumber(0, 100);
+  const progression = generateProgression(start, PROGRESSION_LENGTH, step);
+  const hiddenValueIndex = getRandomNumber(0, progression.length - 1);
+  const question = makeQuestion(progression, hiddenValueIndex);
+  const answer = String(progression[hiddenValueIndex]);
 
   return cons(question, answer);
 };
 
-export default () => console.log(runGame(gameDescription, generateGameData));
+export default () => runGame(gameDescription, generateGameData);

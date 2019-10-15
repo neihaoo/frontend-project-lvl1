@@ -2,29 +2,31 @@ import { cons } from '@hexlet/pairs';
 import runGame from '..';
 import getRandomNumber from '../utils';
 
-const OPERATORS = ['+', '-', '*'];
+const operators = ['+', '-', '*'];
 
 const gameDescription = 'What is the result of the expression?';
 
 const findResultOfExpression = (num1, num2, operator) => {
-  if (operator === '+') {
-    return num1 + num2;
+  switch (operator) {
+    case '+':
+      return num1 + num2;
+    case '-':
+      return num1 - num2;
+    case '*':
+      return num1 * num2;
+    default:
+      return null;
   }
-  if (operator === '-') {
-    return num1 - num2;
-  }
-
-  return num1 * num2;
 };
 
 const generateGameData = () => {
-  const number1 = getRandomNumber(0, 100);
-  const number2 = getRandomNumber(0, 100);
-  const operator = OPERATORS[getRandomNumber(0, OPERATORS.length - 1)];
-  const question = `${number1} ${operator} ${number2}`;
-  const answer = String(findResultOfExpression(number1, number2, operator));
+  const num1 = getRandomNumber(0, 100);
+  const num2 = getRandomNumber(0, 100);
+  const operator = operators[getRandomNumber(0, operators.length - 1)];
+  const question = `${num1} ${operator} ${num2}`;
+  const answer = String(findResultOfExpression(num1, num2, operator));
 
   return cons(question, answer);
 };
 
-export default () => console.log(runGame(gameDescription, generateGameData));
+export default () => runGame(gameDescription, generateGameData);

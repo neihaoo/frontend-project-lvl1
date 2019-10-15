@@ -4,7 +4,7 @@ import getRandomNumber from '../utils';
 
 const gameDescription = 'Answer "yes" if the number is even, otherwise answer "no".';
 
-const isEven = (number) => number % 2 === 0;
+const isEven = (num) => num % 2 === 0;
 
 const generateGameData = () => {
   const question = getRandomNumber(0, 100);
@@ -13,4 +13,4 @@ const generateGameData = () => {
   return cons(question, answer);
 };
 
-export default () => console.log(runGame(gameDescription, generateGameData));
+export default () => runGame(gameDescription, generateGameData);

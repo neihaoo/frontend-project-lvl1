@@ -16,12 +16,12 @@ const findGcd = (a, b) => {
 };
 
 const generateGameData = () => {
-  const number1 = getRandomNumber(0, 100);
-  const number2 = getRandomNumber(0, 100);
-  const question = `${number1} ${number2}`;
-  const answer = String(findGcd(number1, number2));
+  const num1 = getRandomNumber(0, 100);
+  const num2 = getRandomNumber(0, 100);
+  const question = `${num1} ${num2}`;
+  const answer = String(findGcd(num1, num2));
 
   return cons(question, answer);
 };
 
-export default () => console.log(runGame(gameDescription, generateGameData));
+export default () => runGame(gameDescription, generateGameData);
