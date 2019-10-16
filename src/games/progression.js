@@ -16,10 +16,10 @@ const generateProgression = (start, length, step) => {
   return progression;
 };
 
-const makeQuestion = (progression, num) => {
+const makeQuestion = (progression, indexForHide) => {
   const question = [...progression];
 
-  question.splice(num, 1, '..');
+  question.splice(indexForHide, 1, '..');
 
   return question.join(' ');
 };
